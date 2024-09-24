@@ -1,10 +1,13 @@
 "use client";
+import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { IoMdArrowRoundForward } from "react-icons/io";
 
 export default function Home() {
   return (
     <div className="w-full h-dvh flex justify-center items-center">
-      <div className="">
+      <div className="flex flex-col items-center space-y-5">
         <motion.h1
           initial={{
             opacity: 0,
@@ -32,11 +35,26 @@ export default function Home() {
             scale: 1,
             filter: "blur(0px)",
           }}
-          transition={{ duration: 0.5, delay: 0.5 }}
+          transition={{ duration: 0.5, delay: 1 }}
           className="text-center text-white/50"
         >
           Generate stunning images from text using AI models for free
         </motion.p>
+        <motion.div
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 1,
+          }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+        >
+          <Link href="/create">
+            <Button className="mt-3 bg-white text-black font-semibold p-5">
+              Start Creating <IoMdArrowRoundForward />
+            </Button>
+          </Link>
+        </motion.div>
       </div>
     </div>
   );
